@@ -1,10 +1,10 @@
-FROM alpine:latest
+FROM alpine:edge
 
 MAINTAINER rfbezerra@gmail.com
 
 ENV FONTCUSTOM_VERSION 2.0.0
 
-RUN apk add ruby ruby-dev make gcc libc-dev && \
+RUN apk add fontforge ruby ruby-dev make gcc libc-dev && \
     gem install --no-document fontcustom -v "${FONTCUSTOM_VERION}" && \
     apk del ruby-dev make gcc libc-dev && \
     rm -rf /var/cache/apk/*
